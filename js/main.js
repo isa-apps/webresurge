@@ -23,27 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
-    // Custom logic to handle the "active" state for reveal
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .active {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(style);
-
     // 2. Navbar Background Change on Scroll
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(5, 5, 5, 0.95)';
-            navbar.style.padding = '1rem 4rem';
-            navbar.style.borderBottom = '1px solid rgba(74, 158, 255, 0.1)';
+            navbar.classList.add('navbar-scrolled');
         } else {
-            navbar.style.background = 'rgba(5, 5, 5, 0.8)';
-            navbar.style.padding = '2rem 4rem';
-            navbar.style.borderBottom = 'none';
+            navbar.classList.remove('navbar-scrolled');
         }
     });
 
